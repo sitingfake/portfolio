@@ -1,0 +1,83 @@
+/* ---------- Preloader ---------- */
+.preloader {
+  position: fixed; inset: 0; z-index: 200; display: grid; place-items: center;
+  background: var(--bg);
+}
+.preloader__inner { display: grid; justify-items: center; gap: 22px; }
+.preloader__mark { font-family: var(--font-head); font-weight: 700; font-size: clamp(2.6rem, 9vw, 4.5rem); letter-spacing: -0.04em; }
+.preloader__mark i { color: var(--violet); }
+.preloader__bar { width: 160px; height: 2px; background: var(--line); overflow: hidden; border-radius: 2px; }
+.preloader__bar b { display: block; height: 100%; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--violet), var(--gold)); }
+
+/* ---------- Navbar ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px var(--pad);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(to bottom, rgba(7, 10, 18, 0.8), rgba(7, 10, 18, 0.2));
+  border-bottom: 1px solid transparent;
+  transition: transform 0.5s var(--ease), border-color 0.4s;
+}
+.nav.is-hidden { transform: translateY(-110%); }
+.nav.is-scrolled { border-bottom-color: var(--line); }
+.nav__logo { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.04em; display: inline-block; }
+.nav__logo i { color: var(--violet); }
+.nav__links { display: flex; gap: clamp(4px, 2vw, 12px); }
+.nav__links a {
+  position: relative; display: inline-block; padding: 8px 14px; border-radius: 999px;
+  font-size: 0.9rem; color: var(--muted); transition: color 0.3s, background 0.3s;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 1px;
+  background: var(--violet); transform: scaleX(0); transform-origin: 0 50%; transition: transform 0.45s var(--ease);
+}
+.nav__links a:hover, .nav__links a.is-active { color: var(--text); }
+.nav__links a:hover::after, .nav__links a.is-active::after { transform: scaleX(1); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 28px; border-radius: 999px; overflow: hidden; isolation: isolate;
+  font-family: var(--font-head); font-weight: 500; font-size: 0.95rem;
+  border: 1px solid var(--line); transition: color 0.4s var(--ease), border-color 0.4s;
+}
+.btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  transform: translateY(101%); transition: transform 0.5s var(--ease);
+}
+.btn--primary { background: linear-gradient(135deg, var(--violet), var(--violet-2)); border-color: transparent; color: #fff; }
+.btn--primary::before { background: #fff; }
+.btn--primary:hover { color: #1a1440; }
+.btn--ghost::before { background: var(--surface-2); }
+.btn--ghost:hover { border-color: var(--violet); }
+.btn:hover::before { transform: translateY(0); }
+
+/* ---------- Cards ---------- */
+.card {
+  position: relative; border-radius: var(--radius); padding: 24px;
+  background: var(--surface); border: 1px solid var(--line);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: translate 0.5s var(--ease), border-color 0.4s, background 0.4s, box-shadow 0.5s;
+}
+.card::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(139, 124, 255, 0.16), transparent 60%);
+  transition: opacity 0.4s;
+}
+.card:hover::before, .card:focus-visible::before { opacity: 1; }
+/* `translate` (not `transform`) so GSAP's inline transforms never cancel the hover lift */
+.card:hover { translate: 0 -6px !important; border-color: rgba(139, 124, 255, 0.45); background: var(--surface-2); box-shadow: 0 24px 60px -24px rgba(91, 79, 214, 0.5); }
+
+/* ---------- Custom cursor (desktop with fine pointer only) ---------- */
+.cursor { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .cursor { display: block; position: fixed; top: 0; left: 0; z-index: 300; pointer-events: none; border-radius: 50%; will-change: transform; }
+  .cursor--dot { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--violet); }
+  .cursor--ring {
+    width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1px solid rgba(139, 124, 255, 0.55);
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease), background 0.3s, border-color 0.3s;
+  }
+  .cursor--ring.is-hover { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(139, 124, 255, 0.12); border-color: var(--violet); }
+  html.has-cursor, html.has-cursor a, html.has-cursor button { cursor: none; }
+}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ngo Duy-Trang (sitingfake) — Portfolio</title>
+  <meta name="description" content="Portfolio of Ngo Duy-Trang (sitingfake): competitive programmer, practical AI builder and reverse-engineering enthusiast studying Computer Science at VNU-HCM University of Science.">
+  <meta name="theme-color" content="#070a12">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ngo Duy-Trang (sitingfake) — Portfolio">
+  <meta property="og:description" content="Competitive programming, practical AI, reverse engineering and CTFs.">
+  <meta property="og:image" content="assets/images/avatar.jpg">
+  <link rel="icon" href="assets/images/avatar-640.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/education.css">
+  <link rel="stylesheet" href="css/awards.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__mark">sf<i>.</i></span>
+      <span class="preloader__bar"><b id="preloaderBar"></b></span>
+    </div>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <canvas class="ambient" id="ambient" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor cursor--dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor cursor--ring" id="cursorRing" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#about" aria-label="Back to top" data-magnetic>sf<i>.</i></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links">
+        <li><a href="#about" data-spy>About</a></li>
+        <li><a href="#awards" data-spy>Awards</a></li>
+        <li><a href="#contact" data-spy>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ PART 1 — ABOUT ============ -->
+    <section class="section hero" id="about">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Portfolio · 2026</p>
+          <h1 class="hero__title" aria-label="Ngo Duy-Trang">
+            <span class="line"><span class="line__inner">Ngo</span></span>
+            <span class="line"><span class="line__inner">Duy-Trang<em>.</em></span></span>
+          </h1>
+          <p class="hero__alias" data-reveal>aka <strong>sitingfake</strong></p>
+          <p class="hero__role" data-reveal>Competitive programmer <span>/</span> Practical AI <span>/</span> Reverse engineering</p>
+          <p class="hero__bio" data-reveal>
+            I'm a student from Dong Thap, Vietnam, now studying Computer Science at VNU-HCM University of Science.
+            I like turning hard problems into clean algorithms, taking binaries apart to see how they really tick,
+            and building AI that does something useful, usually with a CTF or a hackathon deadline close behind.
+          </p>
+          <div class="hero__cta" data-reveal>
+            <a class="btn btn--primary" href="#awards" data-magnetic><span>View awards</span></a>
+            <a class="btn btn--ghost" href="#contact" data-magnetic><span>Get in touch</span></a>
+          </div>
+          <ul class="hero__facts" data-reveal>
+            <li><span>Based in</span>Dong Thap, Vietnam</li>
+            <li><span>Studying</span>Computer Science</li>
+            <li><span>Born</span>2008</li>
+          </ul>
+        </div>
+
+        <figure class="avatar" id="avatar" data-tilt>
+          <div class="avatar__glow"></div>
+          <div class="avatar__frame">
+            <img src="assets/images/avatar-640.jpg"
+                 srcset="assets/images/avatar-640.jpg 640w, assets/images/avatar.jpg 1200w"
+                 sizes="(max-width: 860px) 80vw, 460px"
+                 width="1200" height="1121"
+                 alt="Illustrated avatar of Kindred, the portrait Ngo Duy-Trang uses as his profile picture">
+          </div>
+          <span class="avatar__tag avatar__tag--a">CP</span>
+          <span class="avatar__tag avatar__tag--b">AI</span>
+          <span class="avatar__tag avatar__tag--c">RE</span>
+        </figure>
+      </div>
+      <a class="scroll-hint" href="#education" aria-label="Scroll to education"><span></span></a>
+    </section>
+
+    <section class="section education" id="education">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>01 — Education</p>
+          <h2 class="section__title" data-split>From a small town to a top CS program</h2>
+        </header>
+
+        <div class="timeline" id="timeline">
+          <span class="timeline__line"><i id="timelineFill"></i></span>
+          <ol class="timeline__list">
+            <li class="tl-item" data-tl>
+              <span class="tl-item__dot"></span>
+              <article class="card tl-card">
+                <p class="tl-card__time">2014 — 2019</p>
+                <h3>Duong Diem Primary School</h3>
+                <p>Where it started: Dong Thap Province, curiosity and a first computer.</p>
+              </article>
+            </li>
+            <li class="tl-item" data-tl>
+              <span class="tl-item__dot"></span>
+              <article class="card tl-card">
+                <p class="tl-card__time">2019 — 2023</p>
+                <h3>Duong Diem Secondary School</h3>
+                <p>First real programming problems with pascal and the habit of solving them for fun.</p>
+              </article>
+            </li>
+            <li class="tl-item" data-tl>
+              <span class="tl-item__dot"></span>
+              <article class="card tl-card">
+                <p class="tl-card__time">2023 — 2026</p>
+                <h3>Tien Giang High School for the Gifted</h3>
+                <p class="tl-card__sub">English 2</p>
+                <p>Trained in competitive programming, won national-level prizes in Informatics and began exploring AI and security.</p>
+              </article>
+            </li>
+            <li class="tl-item tl-item--now" data-tl>
+              <span class="tl-item__dot"></span>
+              <article class="card tl-card">
+                <p class="tl-card__time">2026 — Present</p>
+                <h3>University of Science, VNU-HCM</h3>
+                <p class="tl-card__sub">Bachelor of Computer Science</p>
+                <p>Going deeper into algorithms, systems and AI while competing in CTFs and hackathons.</p>
+              </article>
+            </li>
+          </ol>
+        </div>
+
+        <div class="interests">
+          <h3 class="interests__title" data-reveal>What I'm into</h3>
+          <ul class="chips">
+            <li class="chip" data-chip>Competitive programming</li>
+            <li class="chip" data-chip>Practical AI</li>
+            <li class="chip" data-chip>Reverse engineering</li>
+            <li class="chip" data-chip>Malware analysis</li>
+            <li class="chip" data-chip>Vibe hacking</li>
+            <li class="chip" data-chip>Prompt engineering</li>
+            <li class="chip" data-chip>Vibe coding</li>
+            <li class="chip" data-chip>CTF</li>
+            <li class="chip" data-chip>Hackathons</li>
+          </ul>
+          <p class="interests__games" data-reveal>Off the keyboard: <strong>Kindred</strong> in League of Legends, <strong>Thorne</strong> in Arena of Valor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PART 2 — AWARDS ============ -->
+    <section class="section awards" id="awards">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>02 — Awards</p>
+          <h2 class="section__title" data-split>Proof of work, one contest at a time</h2>
+          <p class="section__lead" data-reveal>Keep scrolling: each award lights up as you reach it.</p>
+        </header>
+
+        <ul class="stats" data-reveal>
+          <li><b data-count="2">0</b><span>National prizes</span></li>
+          <li><b data-count="2">0</b><span>Regional 1st prizes</span></li>
+          <li><b data-count="2">0</b><span>National finals</span></li>
+          <li><b data-count="1">0</b><span>IOAI selection round</span></li>
+        </ul>
+
+        <h3 class="group-title" data-reveal><span>Competitive Programming</span></h3>
+        <div class="award-grid">
+          <article class="card award award--gold" data-award tabindex="0">
+            <span class="award__medal">3rd</span>
+            <p class="award__meta">2024–2025 · National</p>
+            <h4>National Gifted Students Exam, Informatics</h4>
+            <p>Third Prize at the national level, competing against the best young programmers from across Vietnam.</p>
+          </article>
+          <article class="card award award--gold" data-award tabindex="0">
+            <span class="award__medal">3rd</span>
+            <p class="award__meta">2025–2026 · National</p>
+            <h4>National Gifted Students Exam, Informatics</h4>
+            <p>Third Prize for the second year in a row, a consistent result at the country's top informatics exam.</p>
+          </article>
+          <article class="card award award--first" data-award tabindex="0">
+            <span class="award__medal">1st</span>
+            <p class="award__meta">2026 · Regional</p>
+            <h4>Young Informatics Contest, Southern Region</h4>
+            <p>First Prize in Group C1 at the Southern regional round.</p>
+          </article>
+          <article class="card award award--first" data-award tabindex="0">
+            <span class="award__medal">1st</span>
+            <p class="award__meta">2025 · Regional</p>
+            <h4>Young Informatics Contest, Southern Region</h4>
+            <p>First Prize in Group C2 at the Southern regional round.</p>
+          </article>
+          <article class="card award award--gold" data-award tabindex="0">
+            <span class="award__medal">3rd</span>
+            <p class="award__meta">2025 · National Final</p>
+            <h4>Young Informatics Contest, National Final</h4>
+            <p>Third Prize in Group C2 at the nationwide final round.</p>
+          </article>
+          <article class="card award" data-award tabindex="0">
+            <span class="award__medal">Honorable mention </span>
+            <p class="award__meta">2026 · National Final</p>
+            <h4>Young Informatics Contest, National Final</h4>
+            <p>Consolation Prize in Group C1 at the nationwide final round.</p>
+          </article>
+        </div>
+
+        <h3 class="group-title" data-reveal><span>AI Competitions</span></h3>
+        <div class="award-grid">
+          <article class="card award award--violet" data-award tabindex="0">
+            <span class="award__medal">INT</span>
+            <p class="award__meta">2026 · International</p>
+            <h4>IOAI Team Selection</h4>
+            <p>Took part in the selection round for Vietnam's team at the International Olympiad in Artificial Intelligence.</p>
+          </article>
+          <article class="card award award--violet" data-award tabindex="0">
+            <span class="award__medal">EP</span>
+            <p class="award__meta">PTIT · High school division</p>
+            <h4>AI Olympiad by PTIT</h4>
+            <p>Encouragement Prize at the AI Olympiad hosted by the Posts and Telecommunications Institute of Technology.</p>
+          </article>
+          <article class="card award award--pending" data-award tabindex="0">
+            <span class="award__medal">FIN</span>
+            <p class="award__meta">Ho Chi Minh City · Final round</p>
+            <h4>AI Challenge HCM</h4>
+            <p>Reached the final round. Results are still pending, so check back soon.</p>
+          </article>
+        </div>
+
+        <h3 class="group-title" data-reveal><span>Gaming</span></h3>
+        <div class="award-grid award-grid--single">
+          <article class="card award award--rose" data-award tabindex="0">
+            <span class="award__medal">TOP</span>
+            <p class="award__meta">Arena of Valor · Vietnam server</p>
+            <h4>Thorne, Elite Server Ranking</h4>
+            <p>Ranked around 4x on the Vietnam Elite server leaderboard playing Thorne.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PART 3 — CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Let's build something</span><span>Let's build something</span>
+          <span>Let's build something</span><span>Let's build something</span>
+        </div>
+      </div>
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>03 — Contact</p>
+          <h2 class="section__title" data-split>Got a CTF team, a hackathon or a wild idea?</h2>
+          <p class="section__lead" data-reveal>I'm always up for good problems. Drop me a message and I'll get back to you.</p>
+        </header>
+
+        <div class="contact__grid">
+          <a class="contact-card" href="mailto:sitingfake@gmail.com" data-reveal data-magnetic>
+            <span class="contact-card__label">Personal email</span>
+            <span class="contact-card__value">sitingfake@gmail.com</span>
+            <span class="contact-card__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="contact-card" href="mailto:ndtrang2618@apcs.fitus.edu.vn" data-reveal data-magnetic>
+            <span class="contact-card__label">University email</span>
+            <span class="contact-card__value">ndtrang2618@apcs.fitus.edu.vn</span>
+            <span class="contact-card__arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="contact-card" href="https://www.facebook.com/sitingfake/" target="_blank" rel="noopener noreferrer" data-reveal data-magnetic>
+            <span class="contact-card__label">Facebook</span>
+            <span class="contact-card__value">facebook.com/sitingfake</span>
+            <span class="contact-card__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Ngo Duy-Trang (sitingfake)</p>
+      <button class="footer__top" id="toTop" type="button" data-magnetic>Back to top ↑</button>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/awards.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

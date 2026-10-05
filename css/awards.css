@@ -1,0 +1,60 @@
+/* ---------- Awards ---------- */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: clamp(48px, 8vw, 90px); }
+.stats li { padding: 20px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); }
+.stats b { display: block; font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3rem); line-height: 1; color: var(--gold); }
+.stats span { display: block; margin-top: 8px; font-size: 0.82rem; color: var(--muted); }
+
+.group-title { display: flex; align-items: center; gap: 16px; margin: clamp(40px, 6vw, 64px) 0 22px; font-family: var(--font-head); font-size: clamp(1.2rem, 2.6vw, 1.6rem); }
+.group-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+
+.award-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.award-grid--single { grid-template-columns: minmax(0, 520px); }
+
+/* Scroll-scrubbed reveal: JS drives opacity / transform / blur */
+/* --p (0 → 1) is scrubbed by awards.js; CSS turns it into opacity, lift, scale and blur */
+.js .award {
+  --p: 0;
+  opacity: var(--p);
+  transform: translateY(calc((1 - var(--p)) * 70px)) scale(calc(0.94 + 0.06 * var(--p)));
+  filter: blur(calc((1 - var(--p)) * 8px));
+  will-change: transform, opacity;
+}
+.js .award:hover, .js .award:focus-visible {
+  transform: translateY(calc((1 - var(--p)) * 70px)) scale(calc(0.94 + 0.06 * var(--p)));
+}
+.js.reduced .award { --p: 1; will-change: auto; }
+
+.award { --accent: var(--violet); padding: 26px; overflow: hidden; }
+.award::after {
+  content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent); transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease);
+}
+.award:hover::after, .award:focus-visible::after { transform: scaleX(1); }
+.award--gold { --accent: var(--gold); }
+.award--first { --accent: #f2d58a; }
+.award--violet { --accent: var(--violet); }
+.award--rose { --accent: var(--rose); }
+.award--pending { --accent: var(--muted); border-style: dashed; }
+
+.award__medal {
+  display: inline-grid; place-items: center; min-width: 52px; height: 52px; padding: 0 12px; border-radius: 16px;
+  font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: transform 0.5s var(--ease);
+}
+.award:hover .award__medal { transform: rotate(-8deg) scale(1.1); }
+.award--pending .award__medal { animation: pulse-soft 2s ease-in-out infinite; }
+@keyframes pulse-soft { 50% { opacity: 0.45; } }
+.award__meta { margin-top: 18px; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.award h4 { margin-top: 8px; font-family: var(--font-head); font-size: 1.15rem; line-height: 1.3; }
+.award p:last-child { margin-top: 10px; color: var(--muted); font-size: 0.93rem; }
+
+@media (max-width: 960px) {
+  .award-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .award-grid, .award-grid--single { grid-template-columns: 1fr; }
+  .award { padding: 22px; }
+}
